@@ -1,3 +1,3 @@
-# Algorithm with python
-pythonでアルゴリズムの勉強
+# Learn Algorithm
+Learn the algorithm with Python
 
