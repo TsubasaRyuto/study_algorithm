@@ -1,5 +1,4 @@
 package main
-
 import "fmt"
 
 func swap(x, y *int) {
@@ -10,7 +9,7 @@ func swap(x, y *int) {
   *y = temp
 }
 
-func trace (a [100]int, digits int) {
+func trace(a [100]int, digits int) {
   for i := 0; i < digits; i++ {
     if i > 0 {
       fmt.Print(" ")
@@ -20,16 +19,21 @@ func trace (a [100]int, digits int) {
   fmt.Print("\n")
 }
 
-func bubble_sort(a [100]int, digits int) {
-  var j, i int
-  for i = 0; i < digits; i++ {
-    for j = digits - 1; j > i; j-- {
-      if a[j] < a[j - 1] {
-        swap(&a[j - 1], &a[j])
+func shell_sort(a [100]int, digits int) {
+  var i, j, h int
+  for h = 1; h <= digits / 9; h = 3 * h + 1 {}
+
+  for ; h > 0; h /= 3 {
+    for i = h; i < digits; i++ {
+      j = i
+      for (j > h - 1) && (a[j - h] > a[j]) {
+        swap(&a[j - h], &a[j])
+        j -= h
       }
     }
-    trace(a, digits)
   }
+
+  trace(a, digits)
 }
 
 func main() {
@@ -42,5 +46,5 @@ func main() {
   }
 
   trace(a, digits)
-  bubble_sort(a, digits)
+  shell_sort(a, digits)
 }
