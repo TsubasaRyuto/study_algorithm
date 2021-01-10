@@ -135,17 +135,17 @@ void insertNode() {
 }
 
 void deleteNode() {
-  char insertTargetName[20] = "";
+  char deleteNodeName[20] = "";
   STUDENT *current, *prev;
 
   puts("削除するノードのnameを入力してください");
   printf("入力されたnameを持つノードを削除します");
-  scanf("%s", insertTargetName);
+  scanf("%s", deleteNodeName);
 
   current = head;
   prev = NULL;
   while (current != NULL) {
-    if (strcmp(current->name, insertTargetName) == 0) {
+    if (strcmp(current->name, deleteNodeName) == 0) {
       puts("ノードが見つかりました");
       break;
     } else {
