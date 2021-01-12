@@ -1,3 +1,3 @@
 # Learn Algorithm
-Learn the algorithm with Python
+Learn the algorithm
 
