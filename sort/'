@@ -1,0 +1,86 @@
+array = [90, 5, 2, 80, 7, 10, 1, 70, 3, 100, 8, 4, 120, 9, 6, 150]
+
+puts "Before"
+p array
+puts ""
+
+def find_pivot(left, right)
+  pivots = []
+  3.times do
+    pivots.push rand(left..right)
+  end
+
+  pivots.sort
+
+  return pivots[1]
+end
+
+def quick_sort(array, left, right)
+  p array
+  return if (right - left < 1)
+
+  pivot = find_pivot(left, right)
+  puts pivot
+
+  buf = []
+  i = left
+  after_pivot = pivot + 1
+  while (i < right)
+    if i == pivot
+      buf[pivot] = array[i]
+      next
+    end
+
+    if array[i] < array[pivot]
+      buf[i] = array[i]
+    else
+      buf[after_pivot] = array[i]
+      after_pivot += 1
+    end
+
+    i += 1
+  end
+
+  array = buf
+
+  # 左半分
+  quick_sort(buf, left, pivot)
+
+  # 右半分
+  quick_sort(buf, pivot + 1, right)
+
+
+  # i = left
+  # while (i < mid)
+  #   buf.push array[i]
+  #   i += 1
+  # end
+
+  # i = right - 1
+  # while (i >= mid)
+  #   buf.push array[i]
+  #   i -= 1
+  # end
+
+  # index_left = 0;
+  # index_right = buf.size - 1
+
+  # i = left
+  # while (i < right)
+  #   if (buf[index_left] <= buf[index_right])
+  #     array[i] = buf[index_left];
+  #     index_left += 1
+  #   else
+  #     array[i] = buf[index_right];
+  #     index_right -= 1
+  #   end
+
+  #   i += 1
+  # end
+end
+
+array = quick_sort(array, 0, array.size)
+
+puts "After"
+p array
+
